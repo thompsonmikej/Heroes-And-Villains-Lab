@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Models, SuperType
+from .models import SuperType
 
 class SuperTypeSerializer(serializers.ModelSerializer):
     class Meta:
