@@ -11,7 +11,13 @@ def supers_list(request):
     if request.method == 'GET':
         # This is where our custom logic will have to be
         # For that last very large user story in the user stories
-        supers = Super.objects.all()
+        hero_or_villain = request.query_params.get('type') #filters the URL inquiry by "?type=" to one specific response
+        print(hero_or_villain)  #"?type=" returns "hero" or "villain"
+
+        supers = Super.objects.all() #pulls the super characters
+
+        if  hero_or_villain: #if this parameter has a value: hero or villain
+            supers = supers.filter(super_type__type = hero_or_villain) #filter super characters 
         serializer = SuperSerializer(supers, many=True)
         return Response(serializer.data)
     
