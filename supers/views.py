@@ -9,6 +9,8 @@ from supers.models import Super
 @api_view(['GET', 'POST'])
 def supers_list(request):
     if request.method == 'GET':
+        # This is where our custom logic will have to be
+        # For that last very large user story in the user stories
         supers = Super.objects.all()
         serializer = SuperSerializer(supers, many=True)
         return Response(serializer.data)
