@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import SuperSerializer
+from rest_framework import status
 from .models import Super
 from supers.models import Super
 
@@ -44,20 +45,20 @@ def supers_detail(request, pk):
 
 @api_view(['GET']) 
 def supers_list(request):
-    appending_supers_collection = {}
-    appending_supers_collection['name'] = 'Mighty Mouse' #should it not pull from the DB?
-    print (appending_supers_collection) # {'name': 'Mighty Mouse'}
+    the_supers_collection = {}
+    the_supers_collection['name'] = '' #should it not pull names from the DB?
+    print (the_supers_collection) # {'name': 'Mighty Mouse'}
 
-    supers = Super.objects.all()
+    supers = Super.objects.all() #pulls in all supers
 
     custom_response = {'heroes': [], 'villains':[] }
     # custom_response = 0
 
-    for super in supers:
-        supers = Super.objects.filter(super_types_id=super.id)
+    for type in super_types:
+        supers = supers.filter(super_types__id=type.id)
         serializer = SuperSerializer(supers, many=True)
         
         custom_response [super.name] = { 
-            "name": super.name, "cars": serializer.data
+            "name": super.name, "supers": serializer.data
             }
     return Response(custom_response)

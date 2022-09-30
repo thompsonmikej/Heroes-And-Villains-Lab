@@ -21,7 +21,7 @@ def super_types_list(request):
         
 @api_view(['GET', 'PUT', 'DELETE']) 
 def super_types_detail(request, pk):
-    super_types= get_object_or_404(Product, pk=pk)
+    super_types= get_object_or_404(SuperType, pk=pk)
     if request.method == 'GET':
         serializer = SuperTypeSerializer(super_types) 
         return Response(serializer.data)
