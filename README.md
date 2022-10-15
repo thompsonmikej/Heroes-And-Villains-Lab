@@ -10,21 +10,21 @@ Total Weighted Project Points: / 20
  
 Main Stories
  
-(/2.5 points) As a developer, I want to make good, consistent commits.  
+As a developer, I want to make good, consistent commits.  
 
-(/2.5 points) As a developer, I want to create an ERD with two tables - Super and SuperType. 
+As a developer, I want to create an ERD with two tables - Super and SuperType. 
 The two tables should show all of the correct properties for both entities as well as the correct relationship between the two tables
  
-(/2.5 points) As a developer, I want to create a SuperType model in a “super_types” app. 
+As a developer, I want to create a SuperType model in a “super_types” app. 
 Property names must be in snake_case and match the following exactly! 
 type – CharField     
  
-(/5 points) As a developer, I want to register the SuperType model with the admin site so I can: 
+As a developer, I want to register the SuperType model with the admin site so I can: 
 Register a new super user (python manage.py createsuperuser) 
 Visit the admin site 
 Seed two values (“Hero” and “Villain”) into the “super_type” table 
  
-(/2.5 points) As a developer, I want to create a Super model in a “supers” app. 
+As a developer, I want to create a Super model in a “supers” app. 
 Property names must be in snake_case and match the following exactly! 
 name - CharField 
 alter_ego  - CharField 
@@ -33,23 +33,23 @@ secondary_ability – CharField
 catchphrase – CharField 
 super_type – ForeignKey 
  
-(/2.5 points) As a developer, I want my API to serve the “supers” app’s content on the following urls paths: 
+As a developer, I want my API to serve the “supers” app’s content on the following urls paths: 
 Paths must match these exactly! 
 ‘127.0.0.1:8000/api/supers/' - optional params 
 ‘127.0.0.1:8000/api/supers/<int:pk>/’ 
  
-(/5 points) As a developer, I want to create a GET by id endpoint that does the following things: 
+As a developer, I want to create a GET by id endpoint that does the following things: 
 Accepts a value from the request’s URL (The id of the super to retrieve). 
 Returns a 200 status code. 
 Responds with the super in the database that has the id that was sent through the URL. 
  
-(/5 points) As a developer, I want to create a POST endpoint that does the following things: 
+As a developer, I want to create a POST endpoint that does the following things: 
 Accepts a body object from the request in the form of a Super model. 
 Adds the new super to the database. 
 Returns a 201 status code. 
 Responds with the newly created super object. 
  
-(/5 points) As a developer, I want to create a PUT endpoint that does the following things: 
+As a developer, I want to create a PUT endpoint that does the following things: 
 Accepts a value from the request’s URL (The id of the super to be updated). 
 Accepts a body object from the request in the form of a Super model. 
 Finds the super in the Super table and updates that super with the properties that were sent in the request’s body. 
@@ -73,7 +73,7 @@ It is this “custom_response” dictionary that we will send in the Response fu
 
 Bonus Stories
 
-(5 points): As a developer, I want to add full CRUD functionality for the “super_type“ table within the “super_types” views.py file.
+As a developer, I want to add full CRUD functionality for the “super_type“ table within the “super_types” views.py file.
 Checklist
 
 Run through the Setup Setups and get your project ready to begin work.
