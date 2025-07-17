@@ -1,125 +1,116 @@
-# HeroesAndVillainsLab
-Project
-Tech Stack
-Python, Django/Django REST Framework, MySQL, Postman
-User Stories
-Total Unweighted Project Points: /47.5
-Total Weighted Project Points: / 20
- 
+# Heroes-And-Villains-Lab
 
- 
-Main Stories
- 
-As a developer, I want to make good, consistent commits.  
+**Developed at devCodeCamp**
 
-As a developer, I want to create an ERD with two tables - Super and SuperType. 
-The two tables should show all of the correct properties for both entities as well as the correct relationship between the two tables
- 
-As a developer, I want to create a SuperType model in a “super_types” app. 
-Property names must be in snake_case and match the following exactly! 
-type – CharField     
- 
-As a developer, I want to register the SuperType model with the admin site so I can: 
-Register a new super user (python manage.py createsuperuser) 
-Visit the admin site 
-Seed two values (“Hero” and “Villain”) into the “super_type” table 
- 
-As a developer, I want to create a Super model in a “supers” app. 
-Property names must be in snake_case and match the following exactly! 
-name - CharField 
-alter_ego  - CharField 
-primary_ability - CharField 
-secondary_ability – CharField 
-catchphrase – CharField 
-super_type – ForeignKey 
- 
-As a developer, I want my API to serve the “supers” app’s content on the following urls paths: 
-Paths must match these exactly! 
-‘127.0.0.1:8000/api/supers/' - optional params 
-‘127.0.0.1:8000/api/supers/<int:pk>/’ 
- 
-As a developer, I want to create a GET by id endpoint that does the following things: 
-Accepts a value from the request’s URL (The id of the super to retrieve). 
-Returns a 200 status code. 
-Responds with the super in the database that has the id that was sent through the URL. 
- 
-As a developer, I want to create a POST endpoint that does the following things: 
-Accepts a body object from the request in the form of a Super model. 
-Adds the new super to the database. 
-Returns a 201 status code. 
-Responds with the newly created super object. 
- 
-As a developer, I want to create a PUT endpoint that does the following things: 
-Accepts a value from the request’s URL (The id of the super to be updated). 
-Accepts a body object from the request in the form of a Super model. 
-Finds the super in the Super table and updates that super with the properties that were sent in the request’s body. 
-Returns a 200 status code. 
-Responds with the newly updated super object. 
- 
-(/5 points) As a developer, I want to create a DELETE endpoint that does the following things: 
-Accepts a value from the request’s URL. 
-Deletes the correct super from the database 
-Returns a 204 status code (NO CONTENT). 
- 
-(/10 points) As a developer, I want to create a GET endpoint that responds with a 200 success status code and all of the supers within the supers table. 
-This view function should be implemented in a way to accept a “type” parameter 
-Example: " http://127.0.0.1:8000/api/supers?type=hero” 
-If a type query parameter is sent to the view function with the value of “hero”, the view function response should be a list of all supers that are associated with the type of “Hero” (Shown in End Result Overview video on portal) 
-If a type query parameter is sent to the view function with the value of “villain”, the view function response should be a list of all supers that are associated with the type of “Villain” (Shown in End Result Overview video on portal) 
-If no type query parameter is sent, return a custom dictionary response with a “heroes” key set equal to a list of supers of type “Hero” and a “villains” key set equal to a list of supers of type “Villain” (Shown in End Result Overview video on portal) 
-CODE HINT: custom_response = { “heroes”: [], “villains”: [] } 
-In the above code hint we have created a dictionary with two keys, “heroes” and “villains”. After the creation of this dictionary we want to set the “heroes” key equal to all of the heroes from the super table, then set the “villains” key equal to the villains from the super table.
-It is this “custom_response” dictionary that we will send in the Response function! (only if no query param was sent in the GET request)
+A Django REST Framework web application for managing a database of superheroes and villains. This project implements full CRUD functionality with models linked by an Entity Relationship Diagram (ERD), enabling interaction through a RESTful API.
 
-Bonus Stories
+---
 
-As a developer, I want to add full CRUD functionality for the “super_type“ table within the “super_types” views.py file.
-Checklist
+## Description
 
-Run through the Setup Setups and get your project ready to begin work.
-Review the Resources outlined below - be sure to have relevant documentation and references open while you develop!
-Create an ERD diagramming both models for the project and submit to instruction
-Complete Django REST API backend by implementing the endpoints
+The application includes two main models—`Super` and `SuperType`—with a defined relationship. It supports CRUD operations on both models via API endpoints, allowing creation, retrieval, updating, and deletion of superhero and villain records. The API supports filtering supers by type (hero or villain) through query parameters.
 
-Setup Steps
+---
 
-Make a GitHub Repository (** with Python gitignore **)  
-Clone down repository to local computer 
-Open folder in VS code and create/activate a local venv 
-“pipenv install” 
-“pipenv shell” 
-Select the correct Python interpreter for the project 
-Install all necessary packages 
-“pipenv install django” 
-“pipenv install djangorestframework” 
-Windows - “pipenv install mysqlclient” 
-Mac - “pipenv install mysql-connector-python==8.0.26” 
-Create an initial Django project  
-“django-admin startproject heroes_villains_project .” 
-Create a local_settings.py file and import it into your settings.py file to prevent your settings from being pushed to the public repository.  
-Cut & Paste DATABASES and SECRET_KEY from settings.py to local_settings.py. Change DATABASES to reflect the appropriate database NAME, ENGINE, USERNAME, PASSWORD, etc. 
+## Features
 
-Windows: 
+- Web application implementing a RESTful API  
+- Entity Relationship Diagram (ERD) guiding database design  
+- Full CRUD functionality for supers and super types  
+- Filtering and custom JSON responses  
+- Admin site integration with seeded roles  
+- Comprehensive API tested with Postman
 
-    Mac: 
+---
 
-Push project to GitHub repo. 
-Create database in MySQL Workbench 
-Execute migrations commands 
-“python manage.py migrate” 
-Create a new app for the supers, and an app for “super_types” 
-“python manage.py startapp supers” 
-“python manage.py startapp super_types” 
-Download the Postman collection (available on your online portal) and import the collection into Postman (File > Import, then upload the file into the window that pops up).  
-Postman will create a folder in your list of collections. This folder will contain all of the test requests that you will be building your API to successfully pass. 
- 
+## Technologies Used
 
-Resources
-PowerPoints
-Intermediate Django REST Framework
-Relevant Projects 
-Products API
-Django REST API Tutorial (13 videos)
+- Python 3  
+- Django  
+- Django REST Framework  
+- MySQL  
+- Postman (API testing)
 
-End Result
-Your API will have all features as required by the user stories, and all of the requests provided in the Postman collection will have passed with success codes! 
+---
+
+## Setup & Installation
+
+1. **Clone the repository:**
+    ```
+    git clone https://github.com/thompsonmikej/Heroes-And-Villains-Lab.git
+    cd Heroes-And-Villains-Lab
+    ```
+
+2. **Create and activate a virtual environment:**
+    ```
+    pipenv install
+    pipenv shell
+    ```
+
+3. **Install dependencies:**
+    ```
+    pipenv install django djangorestframework mysqlclient mysql-connector-python==8.0.26
+    ```
+
+4. **Start Django project and apps:**
+    ```
+    django-admin startproject heroes_villains_project 
+    python manage.py startapp supers
+    python manage.py startapp super_types
+    ```
+
+5. **Configure database connection:**  
+   - Create a `local_settings.py` file to keep sensitive data out of source control.  
+   - Move `DATABASES` and `SECRET_KEY` settings from `settings.py` to `local_settings.py` and update credentials accordingly.
+
+6. **Apply migrations:**
+    ```
+    python manage.py migrate
+    ```
+
+7. **Create a superuser and seed data:**
+    ```
+    python manage.py createsuperuser
+    ```
+    - Seed `SuperType` table with `"Hero"` and `"Villain"`.
+
+8. **Run the development server:**
+    ```
+    python manage.py runserver
+    ```
+
+---
+
+## Usage
+
+- Access API endpoints to create, retrieve, update, or delete supers and super types.  
+- Use query parameters to filter supers by type.  
+- Manage data via the Django admin interface.  
+- Test requests with Postman using the provided collection.
+
+---
+
+## Challenges & Lessons Learned
+
+- Designed a clear data model using ERDs.  
+- Built RESTful APIs with Django REST Framework, including filtering and custom responses.  
+- Integrated database-backed applications with admin site and seed data.  
+- Practiced secure project setup and dependency management with pipenv.
+
+---
+
+## Future Improvements
+
+- Add authentication and permission layers to the API.  
+- Implement pagination and ordering to enhance API usability.  
+- Expand data models with related features (e.g., powers, alliances).  
+- Create frontend UI consuming the REST API.
+
+---
+
+## Author
+
+Feel free to reach out or connect:
+
+**Michael Thompson**  
+https://www.linkedin.com/in/thompsonmikej  
